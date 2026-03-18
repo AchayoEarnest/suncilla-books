@@ -1,63 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Suncilla Books - Professional Bookkeeping Services for SMEs in Kenya{% endblock %}</title>
-    <meta name="description" content="Professional bookkeeping and financial services for SMEs in Kenya. Affordable, reliable, and tax compliant financial management solutions.">
-    <meta name="keywords" content="bookkeeping Kenya, SME accounting, tax compliance Kenya, payroll services Kenya, financial advisory Kenya">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}Suncilla Books - Professional Bookkeeping Services for
+      SMEs in Kenya{% endblock %}
+    </title>
+    <meta
+      name="description"
+      content="Professional bookkeeping and financial services for SMEs in Kenya. Affordable, reliable, and tax compliant financial management solutions."
+    />
+    <meta
+      name="keywords"
+      content="bookkeeping Kenya, SME accounting, tax compliance Kenya, payroll services Kenya, financial advisory Kenya"
+    />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- NAVBAR FIX -->
+    <style>
+      header {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 100%
+        ) !important;
+        background-color: #0f172a !important;
+        color: white !important;
+        padding: 0 !important;
+        width: 100% !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .navbar {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 100%
+        ) !important;
+        width: 100% !important;
+        padding: 1rem 2rem !important;
+        margin: 0 !important;
+        display: flex !important;
+      }
+
+      .nav-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+      }
+
+      .nav-logo a,
+      .logo-text {
+        color: white !important;
+        text-decoration: none !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+      }
+
+      .logo-icon {
+        color: #06b6d4 !important;
+        font-size: 1.75rem !important;
+      }
+
+      .nav-menu {
+        display: flex !important;
+        list-style: none !important;
+        gap: 2.5rem !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .nav-menu li {
+        margin: 0 !important;
+      }
+
+      .nav-menu a,
+      .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        transition: color 0.3s !important;
+      }
+
+      .nav-menu a:hover,
+      .nav-link:hover,
+      .nav-link.active {
+        color: #06b6d4 !important;
+      }
+
+      .nav-cta {
+        background: #06b6d4 !important;
+        color: white !important;
+        padding: 0.6rem 1.5rem !important;
+        border-radius: 6px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        transition: all 0.3s !important;
+        display: inline-block !important;
+      }
+
+      .nav-cta:hover {
+        background: #0891b2 !important;
+        color: white !important;
+      }
+
+      .hamburger {
+        display: none !important;
+        flex-direction: column !important;
+        cursor: pointer !important;
+        gap: 5px !important;
+      }
+
+      .hamburger span {
+        width: 25px !important;
+        height: 3px !important;
+        background: white !important;
+        border-radius: 3px !important;
+        transition: 0.3s !important;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px) !important;
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0 !important;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px) !important;
+      }
+
+      /* MOBILE RESPONSIVE */
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 1rem !important;
+        }
+
+        .nav-menu {
+          position: absolute !important;
+          top: 70px !important;
+          left: 0 !important;
+          width: 100% !important;
+          background: #0f172a !important;
+          flex-direction: column !important;
+          gap: 0 !important;
+          padding: 2rem !important;
+          display: none !important;
+        }
+
+        .nav-menu.active {
+          display: flex !important;
+        }
+
+        .nav-menu li {
+          width: 100% !important;
+          padding: 1rem 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .nav-menu li:last-child {
+          border-bottom: none !important;
+        }
+
+        .nav-menu a {
+          display: block !important;
+          padding: 0.5rem 0 !important;
+        }
+
+        .hamburger {
+          display: flex !important;
+        }
+
+        .logo-icon {
+          font-size: 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .navbar {
+          padding: 0.75rem !important;
+        }
+
+        .logo-icon {
+          font-size: 1.3rem !important;
+        }
+
+        .logo-text {
+          font-size: 1.1rem !important;
+        }
+      }
+    </style>
+    <style>
+      .hero h1 {
+        color: white !important;
+        font-size: 3.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .hero-subtitle {
+        color: rgba(255, 255, 255, 0.95) !important;
+        font-size: 1.35rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .hero-description {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .hero {
+        text-align: center !important;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem !important;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem !important;
+        }
+
+        .hero-description {
+          font-size: 1rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <!-- Navigation Bar -->
-    <nav class="navbar sticky-nav">
+    <header>
+      <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <a href="{% url 'index' %}">
-                    <span class="logo-icon">₭</span>
-                    <span class="logo-text">Suncilla Books</span>
-                </a>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
-                <li><a href="{% url 'services' %}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
-                <li><a href="{% url 'packages' %}" class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}">Pricing</a></li>
-                <li><a href="{% url 'industries' %}" class="nav-link {% if request.resolver_match.url_name == 'industries' %}active{% endif %}">Industries</a></li>
-                <li><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
-                <li><a href="{% url 'blog' %}" class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}">Blog</a></li>
-                <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
-            </ul>
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          <div class="nav-logo">
+            <a href="{% url 'index' %}">
+              <span class="logo-icon">₭</span>
+              <span class="logo-text">Suncilla Books</span>
+            </a>
+          </div>
+
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+            <li>
+              <a href="{% url 'services' %}" class="nav-link">Services</a>
+            </li>
+            <li><a href="{% url 'packages' %}" class="nav-link">Pricing</a></li>
+            <li>
+              <a href="{% url 'industries' %}" class="nav-link">Industries</a>
+            </li>
+            <li><a href="{% url 'about' %}" class="nav-link">About</a></li>
+            <li><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+          </ul>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-    </nav>
+      </nav>
+    </header>
 
     <!-- WhatsApp Button -->
-    <a href="{% url 'whatsapp' %}" class="whatsapp-btn" title="Chat with us on WhatsApp">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.577 0-3.129.474-4.464 1.371l-.321-.161-3.329-.551 .56 3.202.196.31c-.013.013-.013.027-.026.041C3.157 9.885 2.554 11.386 2.554 12.982c0 3.308 2.686 5.987 5.988 5.987 1.632 0 3.157-.55 4.363-1.479l.291.157 3.365.559-.575-3.22-.19-.304c.013-.012.013-.025.025-.04 1.02-1.174 1.635-2.724 1.635-4.403 0-3.309-2.686-5.988-5.987-5.988Z"/>
-        </svg>
+    <a
+      href="{% url 'whatsapp' %}"
+      class="whatsapp-btn"
+      title="Chat with us on WhatsApp"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.577 0-3.129.474-4.464 1.371l-.321-.161-3.329-.551 .56 3.202.196.31c-.013.013-.013.027-.026.041C3.157 9.885 2.554 11.386 2.554 12.982c0 3.308 2.686 5.987 5.988 5.987 1.632 0 3.157-.55 4.363-1.479l.291.157 3.365.559-.575-3.22-.19-.304c.013-.012.013-.025.025-.04 1.02-1.174 1.635-2.724 1.635-4.403 0-3.309-2.686-5.988-5.987-5.988Z"
+        />
+      </svg>
     </a>
 
     <!-- Messages/Alerts -->
     {% if messages %}
-        <div class="messages-container">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-success">
-                    <div class="alert-content">
-                        <strong>Success!</strong> {{ message }}
-                    </div>
-                    <button class="alert-close" onclick="this.parentElement.style.display='none';">×</button>
-                </div>
-            {% endfor %}
-        </div>
+    <div class="messages-container">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-success">
+        <div class="alert-content"><strong>Success!</strong> {{ message }}</div>
+        <button
+          class="alert-close"
+          onclick="this.parentElement.style.display = 'none'"
+        >
+          ×
+        </button>
+      </div>
+      {% endfor %}
+    </div>
     {% endif %}
 
     <!-- Main Content -->
@@ -65,62 +316,66 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <span class="logo-icon">₭</span>
-                    <span>Suncilla Books</span>
-                </div>
-                <p>Professional bookkeeping and financial services for small and medium-sized businesses across East Africa.</p>
-                <div class="social-links">
-                    <a href="{% url 'whatsapp' %}" title="WhatsApp">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.577 0-3.129.474-4.464 1.371l-.321-.161-3.329-.551 .56 3.202.196.31c-.013.013-.013.027-.026.041C3.157 9.885 2.554 11.386 2.554 12.982c0 3.308 2.686 5.987 5.988 5.987 1.632 0 3.157-.55 4.363-1.479l.291.157 3.365.559-.575-3.22-.19-.304c.013-.012.013-.025.025-.04 1.02-1.174 1.635-2.724 1.635-4.403 0-3.309-2.686-5.988-5.987-5.988Z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'services' %}">Services</a></li>
-                    <li><a href="{% url 'packages' %}">Pricing</a></li>
-                    <li><a href="{% url 'about' %}">About Us</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="{% url 'services' %}#bookkeeping">Bookkeeping</a></li>
-                    <li><a href="{% url 'services' %}#reporting">Financial Reporting</a></li>
-                    <li><a href="{% url 'services' %}#payroll">Payroll Management</a></li>
-                    <li><a href="{% url 'services' %}#tax">Tax Compliance</a></li>
-                    <li><a href="{% url 'services' %}#advisory">Financial Advisory</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Get In Touch</h4>
-                <div class="contact-info">
-                    <p>
-                        <strong>Phone:</strong><br>
-                        <a href="tel:+254724016375">+254 724 016 375</a>
-                    </p>
-                    <p>
-                        <strong>Email:</strong><br>
-                        <a href="/cdn-cgi/l/email-protection#0861666e67487b7d666b616464696a6767637b266b6765"><span class="__cf_email__" data-cfemail="fb92959d94bb888e95989297979a9994949088d5989496">[email&#160;protected]</span></a>
-                    </p>
-                    <p>
-                        <strong>Service Area:</strong><br>
-                        East Africa (Kenya & Beyond)
-                    </p>
-                </div>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <span class="logo-icon">₭</span>
+            <span>Suncilla Books</span>
+          </div>
+          <p>
+            Professional bookkeeping and financial services for small and
+            medium-sized businesses across East Africa.
+          </p>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Suncilla Books. All rights reserved.</p
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'packages' %}">Pricing</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>
+            <strong>Phone:</strong><br />
+            <a href="tel:+254724016375">+254 724 016 375</a>
+          </p>
+          <p>
+            <strong>Email:</strong><br />
+            <a href="mailto:info@suncillabooks.com">info@suncillabooks.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Suncilla Books. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", function () {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
