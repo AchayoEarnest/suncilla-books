@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Services - Suncilla Books Professional Bookkeeping{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Services</h1>
+        <p>Comprehensive financial solutions designed for your business growth</p>
+    </div>
+</section>
+
+<!-- Services Detail -->
+<section class="section services-detail">
+    <div class="container">
+        {% for service in services %}
+        <div class="service-detail-card" id="{{ service.title|lower }}">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">{{ service.icon }}</div>
+                <div>
+                    <h2>{{ service.title }}</h2>
+                    <p>{{ service.description }}</p>
+                </div>
+            </div>
+            
+            {% if service.long_description %}
+            <div class="service-detail-content">
+                <h3>What's Included</h3>
+                <p>{{ service.long_description }}</p>
+            </div>
+            {% endif %}
+            
+            {% if service.get_benefits %}
+            <div class="service-benefits">
+                <h3>Key Benefits</h3>
+                <ul>
+                    {% for benefit in service.get_benefits %}
+                    <li>✓ {{ benefit }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section final-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Need Help Choosing a Service?</h2>
+            <p>Let's discuss your business needs and find the perfect solution</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Our Team</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

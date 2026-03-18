@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Industries We Serve - Suncilla Books{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Industries We Serve</h1>
+        <p>Professional bookkeeping tailored for your industry's unique needs</p>
+    </div>
+</section>
+
+<!-- Industries Detail -->
+<section class="section industries-detail">
+    <div class="container">
+        <div class="industries-showcase">
+            {% for industry in industries %}
+            <div class="industry-detail-card">
+                <div class="industry-header">
+                    <span class="industry-icon-large">{{ industry.icon }}</span>
+                    <h2>{{ industry.name }}</h2>
+                </div>
+                
+                {% if industry.description %}
+                <p class="industry-description">{{ industry.description }}</p>
+                {% endif %}
+                
+                {% if industry.how_we_help %}
+                <div class="how-we-help">
+                    <h3>How We Help</h3>
+                    <p>{{ industry.how_we_help }}</p>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section final-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Ready to Get Professional Help?</h2>
+            <p>Let's discuss how we can support your industry-specific financial needs</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us Today</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

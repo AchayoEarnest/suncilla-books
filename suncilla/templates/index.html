@@ -1,0 +1,226 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home - Suncilla
+Books | Professional Bookkeeping for SMEs{% endblock %} {% block content %}
+<!-- Hero Section -->
+<div class="hero">
+  <div class="container">
+    <h1>Smart Bookkeeping for Growing Businesses</h1>
+    <p class="hero-subtitle">
+      Accurate, Reliable & Affordable Financial Solutions for SMEs
+    </p>
+    <p class="hero-description">
+      Let us handle your books while you focus on growing your business.
+      Professional bookkeeping, tax compliance, and financial advisory in one
+      place.
+    </p>
+
+    <div class="hero-cta">
+      <a href="{% url 'packages' %}" class="btn btn-primary">Get Started</a>
+      <a href="{% url 'packages' %}" class="btn btn-secondary">View Pricing</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">SMEs Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">99.8%</div>
+        <div class="stat-label">Accuracy Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">24hrs</div>
+        <div class="stat-label">Support</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services Section -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Complete financial solutions tailored for your business</p>
+    </div>
+    <div class="grid">
+      <div class="card service-card">
+        <div class="card-icon">📊</div>
+        <h3>Bookkeeping</h3>
+        <p>Accurate recording and organization of your business transactions</p>
+        <a href="{% url 'services' %}" class="btn-link">Learn More →</a>
+      </div>
+      <div class="card service-card">
+        <div class="card-icon">📈</div>
+        <h3>Financial Reporting</h3>
+        <p>Comprehensive reports for better decision making</p>
+        <a href="{% url 'services' %}" class="btn-link">Learn More →</a>
+      </div>
+      <div class="card service-card">
+        <div class="card-icon">💼</div>
+        <h3>Payroll Management</h3>
+        <p>Efficient and compliant payroll processing</p>
+        <a href="{% url 'services' %}" class="btn-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-us-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Why Choose Suncilla Books?</h2>
+    </div>
+    <div class="why-us-grid">
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Expert Team</h4>
+        <p>Qualified bookkeepers with years of experience</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Affordable Pricing</h4>
+        <p>Flexible packages for any business size</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Fast Support</h4>
+        <p>24-hour customer support</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Tax Compliant</h4>
+        <p>Full Kenya tax compliance</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Secure & Private</h4>
+        <p>Your data is completely safe</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">✓</div>
+        <h4>Remote Services</h4>
+        <p>Work with us from anywhere</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages Section -->
+<section class="packages-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Pricing Plans</h2>
+      <p>Choose the perfect plan for your business</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <h3>Starter</h3>
+        <div class="package-price">Custom</div>
+        <p class="package-description">
+          For small businesses just starting out
+        </p>
+        <ul class="package-features">
+          <li>Monthly Bookkeeping</li>
+          <li>Financial Reports</li>
+          <li>Email Support</li>
+        </ul>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-full"
+          >Get Started</a
+        >
+      </div>
+      <div class="package-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Growth</h3>
+        <div class="package-price">Custom</div>
+        <p class="package-description">For growing businesses</p>
+        <ul class="package-features">
+          <li>Monthly Bookkeeping</li>
+          <li>Quarterly Reports</li>
+          <li>Payroll Support</li>
+          <li>24/7 Support</li>
+        </ul>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-full"
+          >Get Started</a
+        >
+      </div>
+      <div class="package-card">
+        <h3>Premium</h3>
+        <div class="package-price">Custom</div>
+        <p class="package-description">For established businesses</p>
+        <ul class="package-features">
+          <li>Unlimited Bookkeeping</li>
+          <li>Monthly Reports</li>
+          <li>Full Payroll Service</li>
+          <li>Tax Advisory</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-full"
+          >Get Started</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 style="color: white">What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <p class="testimonial-text">
+          "Suncilla Books has transformed how we manage our finances!"
+        </p>
+        <div class="testimonial-author">
+          <strong>John Mwangi</strong>
+          <small>Mwangi Salon</small>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <p class="testimonial-text">
+          "Professional service at affordable prices. Highly recommended!"
+        </p>
+        <div class="testimonial-author">
+          <strong>Sarah Kipchoge</strong>
+          <small>Kipchoge Boutique</small>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <p class="testimonial-text">
+          "Finally, reliable bookkeeping that I can trust!"
+        </p>
+        <div class="testimonial-author">
+          <strong>Peter Ochieng</strong>
+          <small>Ochieng Transport</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container text-center">
+    <h2>Ready to Simplify Your Bookkeeping?</h2>
+    <p>Get professional financial management for your business today</p>
+    <div class="cta-buttons">
+      <a href="{% url 'contact' %}" class="btn btn-primary btn-large"
+        >Contact Us</a
+      >
+      <a
+        href="https://wa.me/254724016375"
+        class="btn btn-secondary btn-large"
+        target="_blank"
+        >Chat on WhatsApp</a
+      >
+    </div>
+  </div>
+</section>
+
+{% endblock %}

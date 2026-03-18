@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - Suncilla Books Professional Bookkeeping{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>About Suncilla Books</h1>
+        <p>Your trusted partner in financial management and business growth</p>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="section about-detail">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-card">
+                <h2>Our Story</h2>
+                <p>Suncilla Books was founded with a clear vision: to empower SMEs across East Africa with professional financial management services at an affordable price.</p>
+                <p>We recognized that business owners often struggle to manage their finances while focusing on growth. With years of experience in bookkeeping and financial management, our team has helped hundreds of businesses gain clarity on their finances, stay compliant with regulations, and make informed decisions that drive growth.</p>
+            </div>
+            
+            <div class="about-card">
+                <h2>Our Mission</h2>
+                <p>To empower business owners with clear financial insights to drive growth and compliance.</p>
+                <p>We believe that every business, regardless of size, deserves professional financial management without breaking the bank.</p>
+            </div>
+            
+            <div class="about-card">
+                <h2>Our Vision</h2>
+                <p>To be the most trusted financial partner for SMEs across East Africa, known for reliability, expertise, and customer success.</p>
+            </div>
+        </div>
+        
+        <div class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>💯 Accuracy</h3>
+                    <p>We maintain the highest standards in all financial records, ensuring every number is correct and accounted for.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h3>🤝 Reliability</h3>
+                    <p>You can depend on us to deliver consistent, high-quality service. Your success is our success.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h3>🔍 Transparency</h3>
+                    <p>Clear communication and open dialogue are at the heart of our relationships with clients.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h3>📈 Growth</h3>
+                    <p>We're committed to your business growth, not just managing your finances.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2>Why Our Team Stands Out</h2>
+            <p>Our team consists of experienced bookkeepers, accountants, and financial advisors with combined experience of 50+ years in the financial services industry. Each team member is committed to delivering excellence and building lasting relationships with our clients.</p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h4>Industry Expertise</h4>
+                    <p>Experience across salons, retail, restaurants, transport, real estate, agriculture, and startups.</p>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Tax Knowledge</h4>
+                    <p>Deep understanding of Kenyan tax laws and compliance requirements to keep you ahead of regulations.</p>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>SME Focus</h4>
+                    <p>We specialize in SME needs, not corporate accounting. We understand your unique challenges.</p>
+                </div>
+                
+                <div class="expertise-item">
+                    <h4>Continuous Learning</h4>
+                    <p>Regular training and updates to stay current with changing regulations and best practices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section final-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Ready to Partner with Us?</h2>
+            <p>Let's discuss how we can help your business thrive with professional financial management</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Start Your Journey</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

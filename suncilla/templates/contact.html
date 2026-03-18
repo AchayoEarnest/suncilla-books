@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Suncilla Books - Get in Touch{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Get In Touch</h1>
+        <p>We'd love to hear from you. Reach out and let's discuss your bookkeeping needs.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <div class="contact-form-block">
+                <h2>Send us a Message</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <form method="POST" class="contact-form" id="contactForm">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+254 xxx xxx xxx" autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business_type">Business Type</label>
+                        <select id="business_type" name="business_type">
+                            <option value="">Select your industry...</option>
+                            {% for industry in industries %}
+                            <option value="{{ industry.name }}">{{ industry.name }}</option>
+                            {% endfor %}
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What would you like to discuss?" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Tell us about your business and needs..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">I agree to the privacy policy and terms of service</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+                    <p class="form-note">✓ We typically respond within 24 hours</p>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-block">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+254724016375">+254 724 016 375</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h3>✉️ Email</h3>
+                    <p>
+                        <a href="mailto:info@suncillabooks.com">info@suncillabooks.com</a><br>
+                        <a href="mailto:suncillabooks@gmail.com">suncillabooks@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h3>💬 WhatsApp</h3>
+                    <p><a href="{% url 'whatsapp' %}">Chat with us on WhatsApp</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📍 Service Area</h3>
+                    <p>East Africa (Kenya & Beyond)<br>Remote services available</p>
+                </div>
+
+                <div class="info-item hours">
+                    <h3>⏰ Business Hours</h3>
+                    <p>
+                        <strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM EAT<br>
+                        <strong>Saturday:</strong> By appointment<br>
+                        <strong>Sunday:</strong> Closed
+                    </p>
+                </div>
+
+                <div class="quick-contact">
+                    <a href="{% url 'whatsapp' %}" class="btn btn-primary btn-lg btn-block">Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section faq-contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers to common inquiries</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>How quickly will you respond?</h4>
+                <p>We aim to respond to all inquiries within 24 hours during business days. Urgent matters may receive priority.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you offer free consultations?</h4>
+                <p>Yes! We offer a free initial consultation to discuss your business needs and how we can help.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can you audit my current records?</h4>
+                <p>Absolutely. We can review your existing records, train your team, or take over completely.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you serve businesses outside Kenya?</h4>
+                <p>Yes, we provide services throughout East Africa with remote services for businesses worldwide.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How secure is my financial data?</h4>
+                <p>Data security is paramount. We use industry-standard encryption and secure cloud systems.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I reach you after hours?</h4>
+                <p>Email us anytime. Premium packages include priority support with extended hours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="section final-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Let's Transform Your Financial Management</h2>
+            <p>Join 500+ SMEs who trust Suncilla Books</p>
+            <a href="{% url 'packages' %}" class="btn btn-secondary btn-lg">View Our Packages</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        });
+    }
+</script>
+{% endblock %}

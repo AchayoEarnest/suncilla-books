@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}Pricing & Packages - Suncilla Books{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Flexible packages tailored for businesses of all sizes</p>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section pricing-section">
+    <div class="container">
+        <div class="pricing-grid">
+            {% for package in packages %}
+            <div class="pricing-card {% if package.is_popular %}featured{% endif %}">
+                {% if package.is_popular %}
+                <div class="popular-badge">Most Popular</div>
+                {% endif %}
+                
+                <h3>{{ package.name }}</h3>
+                <p class="tier-description">{{ package.description }}</p>
+                <p class="price">{{ package.price_display }}</p>
+                
+                <a href="{% url 'contact' %}" class="btn {% if package.is_popular %}btn-primary{% else %}btn-secondary{% endif %} btn-block">Get Started</a>
+                
+                <div class="features-list">
+                    <h4>Includes:</h4>
+                    <ul>
+                        {% for feature in package.get_features_list %}
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            {{ feature }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="pricing-note">
+            <p><strong>📞 Custom Enterprise Plans:</strong> Need something different? We offer custom pricing for enterprise clients with specific needs. <a href="{% url 'contact' %}">Contact us</a> for a personalized quote.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions about our pricing</p>
+        </div>
+        
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Can I change packages later?</h4>
+                <p>Absolutely! As your business grows, we can upgrade or adjust your package. There's no lock-in period.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Do you offer discounts for annual payment?</h4>
+                <p>Yes! We offer 10-15% discounts for annual prepayment. Ask our team for details.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What if I have unique business needs?</h4>
+                <p>We customize packages based on your specific requirements. Contact us to discuss your needs in detail.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Is there a setup fee?</h4>
+                <p>Depending on the complexity of your existing records, there may be a one-time setup fee. We'll discuss this during consultation.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How long does onboarding take?</h4>
+                <p>Most businesses are fully onboarded within 1-2 weeks. We work efficiently without compromising quality.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Can I get support between reporting periods?</h4>
+                <p>Yes! Regular communication is included in all packages. We're here to answer your questions anytime.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section final-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Let's Find the Perfect Package for You</h2>
+            <p>Schedule a free consultation with our team</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get Free Consultation</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

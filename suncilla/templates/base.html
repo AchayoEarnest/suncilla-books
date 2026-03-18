@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Suncilla Books - Professional Bookkeeping Services for SMEs in Kenya{% endblock %}</title>
+    <meta name="description" content="Professional bookkeeping and financial services for SMEs in Kenya. Affordable, reliable, and tax compliant financial management solutions.">
+    <meta name="keywords" content="bookkeeping Kenya, SME accounting, tax compliance Kenya, payroll services Kenya, financial advisory Kenya">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{% url 'index' %}">
+                    <span class="logo-icon">₭</span>
+                    <span class="logo-text">Suncilla Books</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'services' %}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
+                <li><a href="{% url 'packages' %}" class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}">Pricing</a></li>
+                <li><a href="{% url 'industries' %}" class="nav-link {% if request.resolver_match.url_name == 'industries' %}active{% endif %}">Industries</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+                <li><a href="{% url 'blog' %}" class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}">Blog</a></li>
+                <li><a href="{% url 'contact' %}" class="nav-cta">Contact</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- WhatsApp Button -->
+    <a href="{% url 'whatsapp' %}" class="whatsapp-btn" title="Chat with us on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.577 0-3.129.474-4.464 1.371l-.321-.161-3.329-.551 .56 3.202.196.31c-.013.013-.013.027-.026.041C3.157 9.885 2.554 11.386 2.554 12.982c0 3.308 2.686 5.987 5.988 5.987 1.632 0 3.157-.55 4.363-1.479l.291.157 3.365.559-.575-3.22-.19-.304c.013-.012.013-.025.025-.04 1.02-1.174 1.635-2.724 1.635-4.403 0-3.309-2.686-5.988-5.987-5.988Z"/>
+        </svg>
+    </a>
+
+    <!-- Messages/Alerts -->
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-success">
+                    <div class="alert-content">
+                        <strong>Success!</strong> {{ message }}
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.style.display='none';">×</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">₭</span>
+                    <span>Suncilla Books</span>
+                </div>
+                <p>Professional bookkeeping and financial services for small and medium-sized businesses across East Africa.</p>
+                <div class="social-links">
+                    <a href="{% url 'whatsapp' %}" title="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.577 0-3.129.474-4.464 1.371l-.321-.161-3.329-.551 .56 3.202.196.31c-.013.013-.013.027-.026.041C3.157 9.885 2.554 11.386 2.554 12.982c0 3.308 2.686 5.987 5.988 5.987 1.632 0 3.157-.55 4.363-1.479l.291.157 3.365.559-.575-3.22-.19-.304c.013-.012.013-.025.025-.04 1.02-1.174 1.635-2.724 1.635-4.403 0-3.309-2.686-5.988-5.987-5.988Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'packages' %}">Pricing</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="{% url 'services' %}#bookkeeping">Bookkeeping</a></li>
+                    <li><a href="{% url 'services' %}#reporting">Financial Reporting</a></li>
+                    <li><a href="{% url 'services' %}#payroll">Payroll Management</a></li>
+                    <li><a href="{% url 'services' %}#tax">Tax Compliance</a></li>
+                    <li><a href="{% url 'services' %}#advisory">Financial Advisory</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <div class="contact-info">
+                    <p>
+                        <strong>Phone:</strong><br>
+                        <a href="tel:+254724016375">+254 724 016 375</a>
+                    </p>
+                    <p>
+                        <strong>Email:</strong><br>
+                        <a href="/cdn-cgi/l/email-protection#0861666e67487b7d666b616464696a6767637b266b6765"><span class="__cf_email__" data-cfemail="fb92959d94bb888e95989297979a9994949088d5989496">[email&#160;protected]</span></a>
+                    </p>
+                    <p>
+                        <strong>Service Area:</strong><br>
+                        East Africa (Kenya & Beyond)
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Suncilla Books. All rights reserved.</p
